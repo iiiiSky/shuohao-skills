@@ -36,3 +36,42 @@ jobs:
             git merge --abort
             exit 1
           fi
+
+      - name: Create next release (increment)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          FORK_REPO="iiiiSky/shuohao-skills"
+          # 读取 fork 现有 tags，取最大 vX.Y.Z，patch+1；无则从 v0.1.0 开始
+          TAGS=$(gh api "repos/$FORK_REPO/tags" --paginate --jq '.[].name' 2>/dev/null || true)
+          NEW="v0.1.0"
+          BEST="0.0.0"
+          for t in $TAGS; do
+            case "$t" in
+              v[0-9]*.[0-9]*.[0-9]*)
+                v=${t#v}
+                if [ "$(printf '%s\n' "$v" "$BEST" | sort -V | tail -n1)" = "$v" ]; then
+                  BEST="$v"
+                fi
+                ;;
+            esac
+          done
+          if [ "$BEST" != "0.0.0" ]; then
+            IFS=. read -r a b c <<< "$BEST"
+            c=$((c+1))
+            NEW="v${a}.${b}.${c}"
+          fi
+          echo "将创建 release: $NEW"
+          if gh api "repos/$FORK_REPO/git/refs/tags/$NEW" >/dev/null 2>&1; then
+            echo "::notice::tag $NEW 已存在，跳过"
+          else
+            HEAD=$(git rev-parse HEAD)
+            gh api "repos/$FORK_REPO/git/refs" \
+              -f ref="refs/tags/$NEW" -f sha="$HEAD" >/dev/null
+            gh api "repos/$FORK_REPO/releases" \
+              -f tag_name="$NEW" -f name="$NEW" \
+              -F draft=false -F prerelease=false \
+              -f body="> 自动同步上游 eternityspring/shuohao-skills 后发布的 $NEW" >/dev/null
+            echo "::notice::已创建 release $NEW"
+          fi
