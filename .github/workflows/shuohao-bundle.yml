@@ -1,0 +1,59 @@
+# 放在 fork 仓库的 .github/workflows/bundle.yml
+# 作用：云端把六个技能目录打包成 skills-bundle.tar.gz，挂到 latest release 上
+#        本机同步时只下这个小包（几百 KB，几秒），不用再下 4.7MB 的整仓源码包
+#
+# 依赖：本机脚本 sync-shuohao-skills.mjs 的 bundle 模式
+#        下载 https://github.com/iiiiSky/shuohao-skills/releases/latest/download/skills-bundle.tar.gz
+#        拿不到时会自动回退到整仓源码包，所以这个 workflow 挂了也不影响同步
+#
+# 用法：Add file → .github/workflows/bundle.yml → 粘贴 → Commit
+#       之后 Actions 页手动 Run workflow 一次，让首个小包生成出来
+
+name: Build skills bundle
+
+on:
+  schedule:
+    - cron: '25 17 * * *'      # 北京时间 01:25，排在 sync-upstream（01:00）之后
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Catch up with upstream
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add upstream https://github.com/eternityspring/shuohao-skills.git || true
+          git fetch upstream main
+          git merge --no-edit upstream/main || { echo "合并冲突，跳过本次打包"; git merge --abort; exit 1; }
+          git push origin main
+
+      - name: Pack the six skills
+        run: |
+          tar czf skills-bundle.tar.gz \
+            skills/novel-outline \
+            skills/novel-characters \
+            skills/novel-art \
+            skills/novel-script \
+            skills/novel-storyboard \
+            skills/character-refs
+          ls -lh skills-bundle.tar.gz
+
+      - name: Publish to release 'latest'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete latest --yes --cleanup-tag 2>/dev/null || true
+          gh release create latest skills-bundle.tar.gz \
+            --title "shuohao skills bundle" \
+            --notes "自动打包（六件套），供本机同步脚本使用 · upstream $(git rev-parse --short upstream/main)"
