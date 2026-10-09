@@ -2,7 +2,7 @@ name: Sync fork with upstream
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # 每天 UTC 03:00 自动同步
+    - cron: '0 17 * * *'   # 北京时间每天 01:00 自动同步 (UTC 17:00)
   workflow_dispatch: {}   # 支持手动触发
 
 permissions:
