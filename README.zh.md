@@ -1,12 +1,32 @@
-[![中文](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-8b1a1a?style=for-the-badge)](README.zh.md)
-[![English](https://img.shields.io/badge/English-f2e3e3?style=for-the-badge&labelColor=f2e3e3&color=b07070)](README.md)
-[![关注作者 X](https://img.shields.io/badge/%E5%85%B3%E6%B3%A8%E4%BD%9C%E8%80%85-%40eternityspring-b07070?style=for-the-badge&labelColor=8b1a1a&logo=x&logoColor=f2e3e3)](https://x.com/eternityspring)
-
-🎬 **[AI视频工作台](https://studio.reelbenchai.com)**
-
-[![ReelBench AI视频工作台中文首屏](assets/reelbench-first-screen.png)](https://studio.reelbenchai.com)
+<div align="center">
 
 # shuohao-skills
+
+**面向各类 Agent 的 AI 短剧制作 skill 集合**
+
+[English](README.md) | 中文 | [X @eternityspring](https://x.com/eternityspring)
+
+**[Skill 一览](#skill-一览) · [安装](#安装) · [前置条件](#前置条件) · [仓库约定](#仓库约定)**
+
+</div>
+
+## ❤️ 赞助商
+
+> [想出现在这里？](mailto:eternityspring@gmail.com)
+
+<details open>
+<summary>点击折叠</summary>
+
+<table>
+<tr>
+<td width="180"><a href="https://studio.reelbenchai.com"><img src="assets/reelbench-first-screen.png" alt="Reelbench Studio" width="150"></a></td>
+<td><a href="https://studio.reelbenchai.com">Reelbench Studio</a> 是本 skill 项目作者开发的付费 AI 影视工作台，交付的是能离线运行的源码。本地 Codex 负责理解、拆解与编排，自部署 ComfyUI 负责图像与视频生成，素材和项目都留在你自己的设备里。</td>
+</tr>
+</table>
+
+</details>
+
+## Skill 一览
 
 **面向各类 Agent 的 AI 短剧制作 skill 集合**：从一本小说到直接交给生成管线的制作素材——排大纲、拆角色、出场景与道具设定、写剧本、排开场站位、切分镜。每个 skill 都是自包含目录，任何能够读取 `SKILL.md` 并执行随附脚本的 Agent 都可以使用；Claude Code 和 Codex 只是其中两个运行示例，并非使用前提。
 
@@ -41,7 +61,7 @@ flowchart TD
 
 **六个制作阶段的报告都支持中英双语界面**：默认中文，`render --lang en` 出全英文报告（数据内容保持原文）。character-refs 的报告同样内置中英日界面，其他语言现场翻译。
 
-## AI 短剧交流社群
+## 付费 AI 视频交流社群
 
 我建了一个付费AI视频交流群，讨论 AI 视频的工作流、工具和实操。**交流群 ReelBench AI 视频工作台是两项独立服务。**
 

@@ -1,10 +1,14 @@
-[![中文](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-f2e3e3?style=for-the-badge&labelColor=f2e3e3&color=b07070)](README.zh.md)
-[![English](https://img.shields.io/badge/English-8b1a1a?style=for-the-badge)](README.md)
-[![Follow on X](https://img.shields.io/badge/Follow-%40eternityspring-b07070?style=for-the-badge&labelColor=8b1a1a&logo=x&logoColor=f2e3e3)](https://x.com/eternityspring)
+<div align="center">
 
-🎬 **[AI Video Workspace](https://studio.reelbenchai.com)**
+# shuohao-skills
 
-[![ReelBench AI Video Workspace](assets/reelbench-first-screen-en.png)](https://studio.reelbenchai.com)
+**Agent-agnostic skills for AI short-drama production**
+
+English | [中文](README.zh.md) | [X @eternityspring](https://x.com/eternityspring)
+
+**[Skills](#skills) · [Install](#install) · [Requirements](#requirements) · [Repository conventions](#repository-conventions)**
+
+</div>
 
 > 👋 **Open to work / collaboration** — I'm between jobs right now, and this repo is what I build in that spare time.
 > Happy to hear from anyone this resonates with. Besides **remote work**, I'm also open to a **half-collaboration**: a few thousand RMB a month for living costs plus a profit share. On-site trips are possible where the work genuinely needs them. What I'm really after is finding people on the same wavelength to build something in this AI wave.
@@ -13,7 +17,23 @@
 > These skills are free and open source, built and battle-tested on real AI short-drama production.
 > If they save you an afternoon, consider [**buying me a coffee on Ko-fi**](https://ko-fi.com/eternityspring) ☕ — it keeps the updates coming.
 
-# shuohao-skills
+## ❤️ Sponsor
+
+> [Want to appear here?](mailto:eternityspring@gmail.com)
+
+<details open>
+<summary>Click to collapse</summary>
+
+<table>
+<tr>
+<td width="180"><a href="https://studio.reelbenchai.com"><img src="assets/reelbench-first-screen-en.png" alt="Reelbench Studio" width="150"></a></td>
+<td><a href="https://studio.reelbenchai.com">Reelbench Studio</a> is a paid AI video workspace built by the author of these skills, delivered as source code that runs offline. Local Codex handles understanding, breakdown and orchestration, a self-hosted ComfyUI generates the images and video, and your assets and projects stay on your own machine.</td>
+</tr>
+</table>
+
+</details>
+
+## Skills
 
 **Agent-agnostic skills for AI short-drama production** — from a novel to shoot-ready material: character bibles, adaptation outlines, scene & prop bibles, screenplays, opening staging, and storyboards. Each skill is self-contained and works with any Agent that can read `SKILL.md` and run the bundled scripts; Claude Code and Codex are two supported examples, not requirements.
 
