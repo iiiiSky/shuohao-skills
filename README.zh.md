@@ -19,6 +19,10 @@
 
 <table>
 <tr>
+<td width="180"><a href="https://go.apimart.ai/tw-shuohao-skills"><img src="assets/apimart-logo.png" alt="APIMart" width="150"></a></td>
+<td>感谢 <a href="https://go.apimart.ai/tw-shuohao-skills">APIMart</a> 赞助了本项目！APIMart 是专注 AI 图片/视频生成的低价 API 平台，GPT-Image-2 低至 $0.006/张，1 美元可出图 160+ 张。图片、视频一套异步 API 通吃，提交任务拿 ID、回调取结果，跑批万张不超时、换模型不改代码。按量付费、无月费，通过<a href="https://go.apimart.ai/tw-shuohao-skills">此注册链接</a>注册即可开用。</td>
+</tr>
+<tr>
 <td width="180"><a href="https://studio.reelbenchai.com"><img src="assets/reelbench-first-screen.png" alt="Reelbench Studio" width="150"></a></td>
 <td><a href="https://studio.reelbenchai.com">Reelbench Studio</a> 是本 skill 项目作者开发的付费 AI 影视工作台，交付的是能离线运行的源码。本地 Codex 负责理解、拆解与编排，自部署 ComfyUI 负责图像与视频生成，素材和项目都留在你自己的设备里。</td>
 </tr>
